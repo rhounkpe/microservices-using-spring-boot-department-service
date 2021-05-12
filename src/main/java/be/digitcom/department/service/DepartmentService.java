@@ -5,8 +5,6 @@ import be.digitcom.department.repository.DepartmentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 @Slf4j
 public class DepartmentService {
@@ -21,8 +19,8 @@ public class DepartmentService {
         return repository.save(department);
     }
 
-    public Department getById(UUID id) {
+    public Department getById(Long id) {
         log.info("Inside DepartmentService#getById method.");
-        return repository.getOne(id);
+        return repository.findById(id).orElseThrow();
     }
 }

@@ -5,8 +5,6 @@ import be.digitcom.department.service.DepartmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
-
 @RestController
 @RequestMapping("/departments")
 @Slf4j
@@ -24,7 +22,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/{id}")
-    public Department getById(@PathVariable("id") UUID id) {
+    public Department getById(@PathVariable("id") Long id) {
         log.info("Inside DepartmentController#getById method.");
         return service.getById(id);
     }
