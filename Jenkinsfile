@@ -131,4 +131,13 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            mail to: "rhounkpe@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
+        }
+        failure {
+          mail to: "rhounkpe@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
+        }
+      }
 }
